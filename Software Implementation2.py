@@ -55,6 +55,9 @@ class Ticket:
             elif 18 <= self.visitor_demographics.age < 60:  # Checking age for regular price
                 student_teacher = input("Are you a student or teacher of an institute? (yes/no): ").lower()  # Asking if visitor is a student/teacher
                 if student_teacher == "yes":  # If visitor is a student/teacher
+                     id_verification = input("Please present your national ID card (15-digit ID number): ")  # Asking for ID verification
+                    if id_verification:  # Checking if ID verification is provided
+                        return 0  # Returning free ticket price
                     return 0  # Returning free ticket price
                 else:  # If not a student/teacher
                     group = input("Are you part of a group? (yes/no): ").lower()  # Asking if visitor is part of a group
@@ -275,4 +278,3 @@ event_catalog = open_event_catalog()  # Creating event catalog
 art_catalog = open_art_catalog()  # Creating art catalog
 # Now, let's call the function to demonstrate the usage
 open_visitor_management(event_catalog, art_catalog)
-
